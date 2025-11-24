@@ -5,6 +5,11 @@ import os
 import sys
 from os.path import join as pjoin, dirname, exists
 
+# Ensure local helper modules (e.g., cythexts, setup_helpers) are importable
+HERE = os.path.abspath(dirname(__file__))
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
+
 # BEFORE importing distutils, remove MANIFEST. distutils doesn't properly
 # update it when the contents of directories change.
 if exists('MANIFEST'): os.remove('MANIFEST')
