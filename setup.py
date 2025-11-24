@@ -6,7 +6,7 @@ import sys
 from os.path import join as pjoin, dirname, exists
 
 # Ensure local helper modules (e.g., cythexts, setup_helpers) are importable
-HERE = dirname(__file__)
+HERE = os.path.abspath(dirname(__file__))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 
